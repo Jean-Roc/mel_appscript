@@ -1,0 +1,19 @@
+{
+    "pipeline":[
+        {
+						"tag":"INPUT",
+            "type":"readers.ply",
+            "filename":"citadelle.ply"
+        },
+        {
+            "type":"filters.sample",
+            "radius":0.5
+        },
+        {
+						"tag":"OUTPUT",
+						"type":"writers.ply",
+		      	"storage_mode":"little endian",
+		      	"filename":"citadelle_redux_#.ply"
+				}
+    ]
+}
