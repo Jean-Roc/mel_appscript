@@ -1,0 +1,25 @@
+{
+  "pipeline": [
+    {
+    "tag":"INPUT",
+    "filename":"D:/2019_Lille_Concorde/lille_sud_sol.laz",
+    "spatialreference":"EPSG:2154"
+    },
+    {
+    "tag":"INPUT_REPROJ",
+    "inputs":"INPUT",
+    "type":"filters.reprojection",
+    "out_srs":"EPSG:3950"
+    },
+    {
+      "inputs":"INPUT_REPROJ",
+      "filename":"D:/2019_Lille_Concorde/dem.tif",
+      "type":"writers.gdal",
+      "gdaldriver":"GTIFF",
+      "gdalopts":"COMPRESS=DEFLATE, TILED=YES",
+      "output_type":"idw",
+      "resolution":"0.5",
+      "nodata":"-9999"
+    }
+  ]
+}

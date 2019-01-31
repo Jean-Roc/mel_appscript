@@ -1,0 +1,21 @@
+{
+  "pipeline": [
+    {
+    "tag":"INPUT",
+    "filename":"D:/2019_lille_saint_sauveur/extraction_lidar_saint_sauveur_lambert93.las",
+    "spatialreference":"EPSG:2154"
+    },
+    {
+    "tag":"INPUT_REPROJ",
+    "inputs":"INPUT",
+    "type":"filters.reprojection",
+    "out_srs":"EPSG:3950"
+    },
+    {
+    "tag":"OUTPUT",
+    "inputs":"INPUT_REPROJ",
+    "filename":"D:/2019_lille_saint_sauveur/extraction_lidar_saint_sauveur_lambertInord.las",
+    "spatialreference":"EPSG:3950"
+    },
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "pipeline": [
+  "D:/2019_Lille_Concorde/lille_sud_bati.laz",
+  "D:/2019_Lille_Concorde/lille_sud_sol.laz",
+  "D:/2019_Lille_Concorde/lille_sud_vegetation.laz",
+    {
+    "type":"filters.merge"
+    },
+"D:/2019_Lille_Concorde/lille_sud_merged.laz"
+  ]
+}

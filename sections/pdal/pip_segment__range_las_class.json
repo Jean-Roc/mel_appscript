@@ -1,0 +1,26 @@
+{
+  "pipeline":[
+		{
+			"tag":"INPUT",
+			"type":"readers.las",
+      "spatialreference":"EPSG:2154",
+			"filename":"D:/2019_Lille_Concorde/nuage/lille_sud_Cloud.las"
+		},
+    {
+      "tag":"range_sol_bati_vegetation",
+      "type":"filters.range",
+      "limits":"Classification[2:2],Classification[5:6]"
+    },
+		{
+      "tag":"OUTPUT",
+			"type":"writers.las",
+      "inputs":["range_sol_bati_vegetation"],
+      "filename":"D:/2019_Lille_Concorde/nuage/output_merged.laz",
+      "compression":"laszip",
+      "a_srs":"EPSG:2154",
+      "scale_x":"0.01",
+      "scale_y":"0.01",
+      "scale_z":"0.01"
+		}
+  ]
+}

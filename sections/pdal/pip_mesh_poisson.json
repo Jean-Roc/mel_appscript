@@ -1,0 +1,23 @@
+{
+  "pipeline":[
+		{
+			"tag":"INPUT",
+			"type":"readers.las",
+      "spatialreference":"EPSG:2154",
+			"filename":"D:/2019_Lille_Concorde/nuage/output_merged.laz"
+		},
+    {
+      "tag":"MESH",
+      "type":"filters.poisson",
+      "depth":"9"
+    },
+    {
+      "tag":"OUTPUT",
+      "type":"writers.ply",
+      "filename":"D:/2019_Lille_Concorde/nuage/lille_sud_output.ply",
+      "precision":"0.1",
+      "faces":"true",
+      "storage_mode":"default"
+    }
+  ]
+}
