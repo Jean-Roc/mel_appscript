@@ -1,0 +1,27 @@
+{
+  "pipeline":[
+	{
+		"tag":"INPUT",
+		"type":"readers.tindex",
+		"filename":"//batzella.lmcu.fr/lidar/2018/aerodata/classification/laz/index_2154.sqlite",
+		"lyr_name":"index_2154",
+		"tindex_name":"location",
+		"spatialreference":"EPSG:2154",
+		"srs_column":"srs",
+		"bounds":"([704828, 705172], [7060859, 7061120])"
+		},
+	{
+		"tag":"CROP",
+		"type":"filters.crop",
+		"polygon":"Polygon ((704828.49069050780963153 7061120.81686891987919807, 705172.87255257822107524 7061112.36578028090298176, 705165.8299787116702646 7060859.53737847413867712, 704829.19494789442978799 7060865.87569495383650064, 704828.49069050780963153 7061120.81686891987919807))"
+		},
+	{
+		"tag":"OUTPUT",
+		"type":"writers.las",
+		"inputs":"CROP",
+		"compression":"laszip",
+		"a_srs":"EPSG:2154",
+		"filename":"C:/Users/jrmorreale/Desktop/test.laz"
+    }
+  ]
+}

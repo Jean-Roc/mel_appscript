@@ -1,0 +1,33 @@
+{
+  "pipeline":[
+   {
+		"tag":"INPUT",
+		"type":"readers.las",
+		"spatialreference":"EPSG:2154",
+ 		"filename":"C:/data/lidar/aerodata/final/laz_pdal/708000_7059000.laz"
+    },
+    {
+		"tag":"CROP",
+		"inputs":"INPUT",
+		"type":"filters.crop",
+		"polygon":"MultiPolygon (((708931.67368448351044208 7058513.5601092092692852, 708927.75468961521983147 7058456.34278413187712431, 708778.8328846205258742 7058449.68049285560846329, 708772.13654050719924271 7058449.65935091022402048, 708769.20975656271912158 7058568.48677905648946762, 708783.64855735539458692 7058570.82820621225982904, 708931.67368448351044208 7058513.5601092092692852)))"
+    },
+	 {
+		"tag":"RANGE",
+		"inputs":"CROP",
+		"type":"filters.range",
+		"limits":"Classification[2:6]"
+    },
+		{
+		"tag":"OUTPUT",
+		"inputs":"RANGE",
+		"type":"writers.las",
+		"filename":"D:/villeneuve_dascq_cer_labrousse.las",
+		"compression":"laszip",
+		"a_srs":"EPSG:2154",
+		"scale_x":"0.01",
+		"scale_y":"0.01",
+		"scale_z":"0.01"
+	}
+  ]
+}

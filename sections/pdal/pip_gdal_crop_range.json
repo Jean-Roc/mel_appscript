@@ -1,0 +1,31 @@
+{
+  "pipeline":[
+   {
+		"tag":"INPUT",
+ 		"type":"readers.tindex",
+ 		"filename":"C:/data/lidar/aerodata/final/laz_pdal/index.sqlite",
+ 		"lyr_name":"laz_tiles_index",
+ 		"tindex_name":"location",
+ 		"spatialreference":"EPSG:4326",
+		"t_srs":"EPSG:2154"
+    },
+    {
+		"tag":"CROP",
+		"inputs":"INPUT",
+		"type":"filters.crop",
+		"polygon":"MultiPolygon (((708931.67368448351044208 7058513.5601092092692852, 708927.75468961521983147 7058456.34278413187712431, 708778.8328846205258742 7058449.68049285560846329, 708693.79069597879424691 7058449.28859336860477924, 708706.33147955720778555 7058557.06095224712044001, 708784.31947743613272905 7058571.16933377273380756, 708931.67368448351044208 7058513.5601092092692852)))"
+    },
+	 {
+		"tag":"RANGE",
+		"inputs":"CROP",
+		"type":"filters.range",
+		"limits":"Classification[2:6]"
+    },
+		{
+		"tag":"OUTPUT",
+		"inputs":"RANGE",
+		"type":"writers.las",
+		"filename":"D:/villeneuve_dascq_cer_labrousse.las"
+		}
+  ]
+}

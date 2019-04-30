@@ -1,0 +1,29 @@
+{
+  "pipeline":[
+   {
+		"tag":"INPUT",
+		"type":"readers.tindex",
+		"filename":"c:/index.sqlite",
+		"lyr_name":"laz_tiles_index",
+		"tindex_name":"location",
+		"spatialreference":"EPSG:4326",
+		"t_srs":"EPSG:2154"
+    },
+    {
+		"tag":"RANGE_BATI",
+		"inputs":"INPUT",
+		"type":"filters.range",
+		"limits":"Classification[6:6]"
+    },
+		{
+		"inputs":"RASTER_BATI",
+		"filename":"D:/alti_bati.tif",
+		"type":"writers.gdal",
+		"gdaldriver":"GTIFF",
+		"gdalopts":"COMPRESS=DEFLATE, TILED=YES, BIGTIFF=YES",
+		"output_type":"idw",
+		"resolution":"0.3",
+		"nodata":"-9999"
+		}
+	]	
+}

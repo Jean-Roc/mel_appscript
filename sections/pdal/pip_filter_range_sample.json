@@ -1,0 +1,28 @@
+{
+  "pipeline": [
+    {
+    "tag":"INPUT",
+    "filename":"D:/2019_lille_saint_sauveur/nuage/selection.laz",
+    "spatialreference":"EPSG:2154"
+    },
+    {
+    "tag":"RANGE",
+    "type":"filters.range",
+    "limits":"Classification[5:5]"
+    },
+    {
+    "tag":"SAMPLE",
+    "inputs":"RANGE",
+    "type":"filters.sample",
+    "radius":"2"
+    },
+    {
+      "tag":"OUTPUT",
+			"type":"writers.las",
+      "inputs":["SAMPLE"],
+      "filename":"D:/2019_lille_saint_sauveur/nuage/sample_vegetation_2m.laz",
+      "compression":"laszip",
+      "a_srs":"EPSG:2154"
+    }
+  ]
+}

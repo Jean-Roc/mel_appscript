@@ -1,0 +1,18 @@
+{
+  "pipeline": [
+    {
+    "tag":"INPUT",
+    "filename":"//batzella.lmcu.fr/lidar/2018/aerodata/classification/ept/",
+    "spatialreference":"EPSG:2154",
+		"bounds":"([700655,700933],[7061952,7062193])"
+    },
+    {
+      "tag":"OUTPUT",
+			"type":"writers.las",
+      "inputs":"INPUT",
+      "filename":"C:/Users/jrmorreale/Desktop/test_extraction_ept.laz",
+      "compression":"laszip",
+      "a_srs":"EPSG:2154"
+    }
+  ]
+}

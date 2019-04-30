@@ -1,0 +1,20 @@
+{
+  "pipeline": [
+    {
+    "tag":"INPUT",
+    "filename":"input.laz",
+    "spatialreference":"EPSG:2154"
+    },
+    {
+      "tag":"OUTPUT",
+			"type":"writers.las",
+      "inputs":["INPUT"],
+      "filename":"output.laz",
+      "compression":"laszip",
+      "a_srs":"EPSG:2154",
+      "dataformat_id":"6",
+      "scale":"0.01",
+      "foward":"vlr"
+    }
+  ]
+}
